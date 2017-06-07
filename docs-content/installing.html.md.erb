@@ -20,13 +20,13 @@ This adds the tile to your staging area.
 
 * Copy your NATS credentials from the Ops Manager Director and input them to the Log Search tile settings. 
 
-<%= image_tag("images/ops_mamager_director.png") %>
+<%= image_tag("Images/ops_mamager_director.png") %>
 
 * Define your log retention period (by default, the log retention period is set to 30 days).
 
 * Create a URL for Kibana. By default, it looks like this **https://logs.yourdomain.com**. 
 
-<%= image_tag("images/logsearch_settings.png") %>
+<%= image_tag("Images/logsearch_settings.png") %>
 
 6. Click **Save**.
 
@@ -34,11 +34,11 @@ This adds the tile to your staging area.
 
 8. After Logsearch has been installed, grab the **ls-router** job IP address on the Altoros Logsearch for PCF status page.
 
-<%= image_tag("images/logsearch_status.png") %>
+<%= image_tag("Images/logsearch_status.png") %>
 
 9. Open the **Elastic Runtime Settings**, click **System Logging**, and paste **ls-router IP** into the **External Syslog Aggregator Hostname** input box. Select **port 5514** and the TCP protocol.
 
-<%= image_tag("images/configure_system_logging.png") %>
+<%= image_tag("Images/configure_system_logging.png") %>
 
 10. Click save, go back to the installation dashboard, and press Apply Changes.
 
