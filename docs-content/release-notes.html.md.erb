@@ -11,7 +11,8 @@ These are release notes for Altoros Log Search for Pivotal Cloud Foundry (PCF).
 
 Features included in this release:
 
-* Updated director.ip to director.hostname 
+* Internally, Altoros Log Search for PCF now refers to the Ops Manager Director by hostname instead of by IP address.
+  This corrects an issue where the tile could not communicate with the Ops Manager Director if the IP address changed.
 
 ##<a id="ver"></a> v0.207.6
 
