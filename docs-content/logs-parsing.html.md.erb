@@ -1,0 +1,89 @@
+---
+title: Parsing Rules for Altoros Log Search for PCF
+owner: Partners
+---
+
+This topic describes default configuration of parsing rules for **Altoros Log Search for Pivotal Cloud Foundry (PCF)**.
+
+##<a id='indices'></a> Indices
+
+By default, Altoros Log Search for PCF stores parsed logs in indices named `logs-%{[@metadata][index]}-%{+YYYY.MM.dd}`.
+`%{[@metadata][index]}` is calculated as the following:
+
+* `platform` for Pivotal Cloud Foundry Elastic Runtime logs
+* `app-%{[cf][org]}-%{[cf][space]}` for Pivotal Cloud Foundry Elastic Runtime application logs.
+
+So the following indices are created as the result:
+
+* `logs-platform-%{+YYYY.MM.dd}` for Pivotal Cloud Foundry Elastic Runtime platform logs.
+* `logs-app-%{[cf][org]}-%{[cf][space]}-%{+YYYY.MM.dd}` for Pivotal Cloud Foundry Elastic Runtime application logs.
+
+Also it can be useful to read how to [get list of all indices in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/_list_all_indices.html).
+
+##<a id='fields'></a> Fields
+
+Altoros Log Search provides Logstash parsing rules which are used to parse incoming log events and create sets of fields from parsed data. Some fields are common for application and platform logs, some are event-specific. Apart from that, there are system fields added by Logstash. Read below sections to get detailed information on how fields the logs are split when using Altoros Log Search.
+
+###<a id='common-fields'></a> Common fields
+
+These fields are common for application and platform logs. They store the following information from a log event:
+
+* Log input (`@input`, `@index_type`)
+* Log shipping (`@shipper.*` fields)
+* Log source (`@source.*` fields)
+* Log destination in Elasticsearch (`@metadata.index`, `@type`)
+* Log message payload (`@message`, `@level`)
+
+<table>
+<tr><th>Field</th><th>Value examples</th><th>Comment</th></tr>
+<tr><td><code>@input</code></td><td>syslog, relp, ...</td><td></td></tr>
+<tr><td><code>@index_type</code></td><td>app, platform</td><td>Either app or platform. Default is platform.</td></tr>
+<tr><td><code>@metadata.index</code></td><td>platform, app-myorg-myspace, ...</td><td>Constructed as app-${org}-${space} for application logs. Note that ${space} and ${org} are ommitted in index name if corresponding info is missing in log event.</td></tr>
+<tr><td><code>@shipper.priority</code></td><td>6, 14, ...</td><td></td></tr>
+<tr><td><code>@shipper.name</code></td><td>doppler_syslog, vcap.nats_relp, ...</td><td></td></tr>
+<tr><td><code>@source.host</code></td><td>192.168.111.63, ...</td><td></td></tr>
+<tr><td><code>@source.deployment</code></td><td>cf, ...</td><td>For application logs this value is shipped within a log event.</td></tr>
+<tr><td><code>@source.job</code></td><td>api_z1, ...</td><td></td></tr>
+<tr><td><code>@source.job_index</code></td><td>52ba268e-5578-4e79-afa2-2ddefd70badg, ...</td><td>Bosh ID of the job (guid) - value of <code>spec.id</code> extracted from Bosh for the job</td></tr>
+<tr><td><code>@source.index</code></td><td>0, 1, ...</td><td>Bosh instance index - value of <code>spec.index</code> extracted from Bosh for the job</td></tr>
+<tr><td><code>@source.vm</code></td><td>api_z1/0</td><td>For those entries where <code>@source.index</code> is passed, calculated as <code>@source.job</code>/<code>@source.index</code></td></tr>
+<tr><td><code>@source.component</code></td><td>rep, nats, bbs, uaa, ...</td><td></td></tr>
+<tr><td><code>@source.type</code></td><td>APP, RTR, STG, system, cf, ...</td><td>For application logs the field is set with CloudFoundry log source types. Additionally, for log events that don't specify a source type we use, a dictionary based on an event type: <code>LogMessage -> LOG</code>, <code>Error -> ERR</code>, <code>ContainerMetric -> CONTAINER</code>, <code>ValueMetric -> METRIC</code>, <code>CounterEvent -> COUNT</code>, <code>HttpStartStop -> HTTP</code>. For platform logs the value is either <code>system</code> or <code>cf</code>.</td></tr>
+<tr><td><code>@type</code></td><td>LogMessage, Error, ValueMetric, system, cf, haproxy, uaa, vcap, ...</td><td>The field is used to define documents type in Elasticsearch. This field is set with values distinguishing logs of different types.</td></tr>
+<tr><td><code>@message</code></td><td>This is a sample log message text</td><td></td></tr>
+<tr><td><code>@level</code></td><td>INFO, ERROR, WARN, ...</td><td></td></tr>
+<tr><td><code>@raw</code></td><td><13>2016-09-26T18:20:25.134194+00:00 192.168.111.63 vcap.rep [job=cell_z1 index=0] My log message</td><td>This field stores an unparsed log event (as it came).</td></tr>
+<tr><td><code>@timestamp</code></td><td>September 26th 2016, 21:04:17.928</td><td>The field is set with value of a log event timestamp (time when the log was collected by CloudFoundry logging agent).</td></tr>
+<tr><td><code>tags</code></td><td>syslog_standard, app, logmessage, logmessage-app, ...</td><td>This field stores tags set during parsing. A specific tag is set in each parsing snippet which helps to track parsing (name of tag = name of snippet). Fail tags are set in case of parsing failures.</td></tr>
+</table>
+
+###<a id='app-fields'></a> Application meta fields
+
+These fields are specific to application logs only. They store Pivotal Cloud Foundry Elastic Runtime metadata about an application that emmitted the log or relates to the log event (e.g. metrics).
+
+<table>
+<tr><th>Field</th><th>Values</th></tr>
+<tr><td><code>@cf.org_id</code></td><td>2d5f8dc7-dcf4-443b-9491-a54d27db785f, ...</td></tr>
+<tr><td><code>@cf.org</code></td><td>myorg, ...</td></tr>
+<tr><td><code>@cf.space_id</code></td><td>c9290e71-780b-43ee-8074-f37ee33b2ff7, ...</td></tr>
+<tr><td><code>@cf.space</code></td><td>myspace, ...</td></tr>
+<tr><td><code>@cf.app_id</code></td><td>ee61d1b6-f08f-4f93-b93f-2a9b0ae82dfc, ...</td></tr>
+<tr><td><code>@cf.app</code></td><td>myapp, ...</td></tr>
+<tr><td><code>@cf.app_instance</code></td><td>0, 1, 2, ...</td></tr>
+</table>
+
+###<a id='event-specific-fields'></a> Event specific fields
+
+* *Application logs* are shipped as JSON events. Set of JSON fields varies for different event types. All common fields from JSON are mapped accordingly to common fields and Elastic Runtime meta fields listed above. Other JSON fields (those extra fields specific to a particular event type) are stored as `<@type>.<json field name>`.
+  Example: `logmessage.message_type`.
+  Additionally, format of a log line (message shipped in a log event) may vary for different events. Parsed fields from a log line are stored as `<@source.type>.<field name>`.
+  Example: `rtr.path`.
+
+* *Platform logs* are shipped in events of plain text format. The format is parsed and common fields are set from the parsed data.
+  A format of a log line (message shipped in a log event) may vary for different event types. For consistency we store fields parsed from the log line as `<@source.component>.<field name>`.
+  Example: `uaa.pid`.
+
+###<a id='elasticsearch-meta-fields'></a> Elasticsearch meta fields
+
+Each parsed log event also has: a set of [Elasticsearch meta fields](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-fields.html) (prefixed with _ underscore).
+
