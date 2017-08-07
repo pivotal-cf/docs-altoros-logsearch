@@ -3,22 +3,24 @@ title: Using Altoros Log Search for PCF
 owner: Partners
 ---
 
-This topic describes how to use **Altoros Log Search for PCF**.
+This topic describes how to use Altoros Log Search of Pivotal Cloud Foundry (PCF).
 
-##<a id='using'></a> Accessing Altoros Log Search Kibana Dashboard
+##<a id='prereq'></a> Prerequisite
 
-To access Altoros Log Search with your PCF deployment, perform the following steps:
+You have installed and configured the Altoros Log Search for PCF tile. For more information, see [Installing and Configuring Altoros Log Search for PCF](./installing.html).
 
-1. In the **Pivotal Elastic Runtime** tile, click **Domains**.
+##<a id='using'></a> Using Altoros Log Search for PCF
 
-1. Record the value for **System Domain**.
- <%= image_tag("Images/ert_system_domain.png") %>
+To use Altoros Log Search with your PCF deployment, do the following:
 
-1. Navigate to `https://logs.YOUR-SYSTEM-DOMAIN`.
+1. Navigate to **https<span>:</span>//logs.YOUR-SYSTEM-DOMAIN.com**
 
-1. Log in to Altoros Log Search using your Pivotal Elastin Runtime credentials.
- <%= image_tag("Images/logsearch_login.png") %>
+1. A prompt requesting permission for Log Search appears.
+ <%= image_tag("Images/application_auth.png") %>
 
-##<a id='configuring'></a> Configuring Altoros Log Search Kibana Dashboards
+1. Click **Authorize**.
 
-For information about creating and editing Kibana visualizations and dashboards, see [Building a Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard-getting-started.html) and [Creating a Visualization](https://www.elastic.co/guide/en/kibana/current/createvis.html).
+1. Log in to Kibana using **Pivotal Elastic Runtime** credentials.
+
+
+

@@ -5,12 +5,12 @@ owner: Partners
 
 <p class="note warning">
 <strong>WARNING! </strong>
-The Altoros Log Search for Pivotal Cloud Foundry (PCF) tile is currently in beta and is intended for evaluation and test purposes only.
+The Altoros Log Search for Pivotal Cloud Foundry (PCF) tile is currently in beta and is intended for evaluation and test purposes only. 
 Do not use this product in a PCF production environment.
 </p>
 
 Altoros Log Search for PCF is a flexible combination of Elasticsearch, Logstash, and Kibana (ELK)
-that provides log aggregation and parsing algorithms for PCF operators and developers.
+that provides log aggregation and parsing algorithms for PCF operators and developers. 
 
 ## <a id='overview'></a>Overview
 
@@ -26,11 +26,9 @@ Out-the-box, users get:
 
 Altoros Log Search for PCF includes the following key features:
 
-* **Pivotal Cloud Foundry logs**: Collecting logs from all PCF components.
-* **Services logs**: Provides the ability to collect logs from all PCF Data Services available on Pivotal Network.
-* **Application logs**: Log Search is configured to get all application logs by default.
-* **SSO and multi-Tenancy**: Uses the Cloud Foundry UAA service to control access to Kibana dashboards based on user role and rights within the platform. Multi-tenancy is implemented according to the roles defined by Cloud Foundry UAA.
-* **Dashboards and Visualization**: Provides out-of-the-box Dashboards for application and PCF platform logs.
+* Elasticsearch v5.3.1, Kibana v5.3.1, Logstash v5.3.1
+* Logstash parsing rules adapted specifically for PCF
+* Out-of-the-Box Kibana dashboards
 
 ## <a id="snapshot"></a>Product Snapshot
 
@@ -41,23 +39,23 @@ The following table provides version and version-support information about Altor
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>v0.300.0</td>
+        <td>v0.207.7</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>August 7, 2017</td>
+        <td>June 28, 2017</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>Elasticsearch 5.1.1, Logstash 5.1.1, Kibana 5.1.1</td>
+        <td>log-search-for-cloudfoundry v205.0.0, and logsearch-boshrelease v207.0.0</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v1.9.x, v1.10.x, v1.11.x</td>
+        <td>v1.7.x, v1.8.x, v1.9.x, v1.10.x, and v1.11.x</td>
     </tr>
     <tr>
         <td>Compatible Elastic Runtime version(s)</td>
-        <td>v1.9.x, v1.10.x, v1.11.x</td>
+        <td>v1.7.x, v1.8.x, v1.9.x, v1.10.x, and v1.11.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
@@ -66,34 +64,8 @@ The following table provides version and version-support information about Altor
     <tr>
         <td>IPsec support</td>
         <td>No</td>
-    </tr>
+    </tr>      
 </table>
-
-## <a id="prerequisites"></a>Prerequisites
-
-To complete installation of Altoros Log Search for PCF, you need the following:
-
-* CPU/RAM/disk resources for 11 VMs
-* Internet connectivity between the networks where the PCF deployment and Log Search are installed. Altoros recommends installing Log Search on the same network with PCF.
-
-## <a id="requirements"></a>Requirements
-
-Altoros Log Search for PCF has the following requirements:
-
-* [Pivotal Cloud Foundry Elastic Runtime](https://network.pivotal.io/products/elastic-runtime) v1.9.x, v1.10.x, v1.11.x
-* [Pivotal Cloud Foundry Ops Manager](https://network.pivotal.io/products/ops-manager) v.1.9.x, v1.10.x, v1.11.x
-
-## <a id="elastic-docs"></a>Elastic Documentation
-
-See the following Elastic documentation about each component of the ELK stack:
-
-* [Elasticsearch 5.5 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.5/index.html)
-* [Logstash 5.5 Documentation](https://www.elastic.co/guide/en/logstash/5.5/index.html)
-* [Kibana 5.5 Documentation](https://www.elastic.co/guide/en/kibana/5.5/index.html)
-
-## <a id="trial-license"></a>Trial License
-
-Users interested in Log Search can sign up for a [free trial](https://www.altoros.com/wp-content/uploads/2017/07/AltorosLogsearchTileEULA.pdf).
 
 ## <a id="feedback"></a>Feedback
 
