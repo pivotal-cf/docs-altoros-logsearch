@@ -3,36 +3,51 @@ title: Installing and Configuring Altoros Log Search for PCF
 owner: Partners
 ---
 
-This topic describes how to install and configure Altoros Log Search for Pivotal Cloud Foundry (PCF).
+This topic describes how to install and configure **Altoros Log Search for Pivotal Cloud Foundry (PCF)**.
 
 ##<a id='install'></a> Install and Configure Altoros Log Search for PCF
 
 1. Download the product file from [Pivotal Network](https://network.pivotal.io/products/altoros-log-search).
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
 
-1. Under the **Import a Product** button, click **+** next to the version number of Altoros Log Search for PCF. 
-This adds the tile to your staging area.
+1. Under the **Import a Product** button, click **+** next to the version number of **Altoros Log Search for PCF**. This adds the tile to your staging area.
 
 1. Click the newly added **Altoros Log Search for PCF** tile.
 
-1. Click the **Settings** tab and provide the following parameters:
-   1. Copy your NATS credentials from the Ops Manager Director and input them to the Log Search tile settings. 
-   <%= image_tag("Images/ops_manager_director.png") %>
-   1. Define your log retention period. By default, the log retention period is set to 30 days.
-1. Create a URL for Kibana. By default, it looks like this `https<span>:</span>//logs.yourdomain.com`. 
-   <%= image_tag("Images/logsearch_settings.png") %>
+1. Configure **Log Data Retention** settings:
+
+    Define your log retention period. Elasticsearch Curator will match indices based on whether they fit within the given time range. By default, logging indices kept for 30 days.
+
+    1. **Log retention unit**: This setting must be one of days, weeks, months, or years.
+
+    2. **Log retention value**: The value of this setting will be used as a multiplier for **Log retention unit**.
+    <%= image_tag("Images/logsearch_log_data_retention.png") %>
 
 1. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Altoros Log Search for PCF tile.
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install **Altoros Log Search for PCF** tile.
 
-1. After Log Search has been installed, grab the **ls-router** job IP address on the Altoros Log Search for PCF status page.
-<%= image_tag("Images/logsearch_status.png") %>
+##<a id='elastic-runtime-configuration'></a> Configure Pivotal Elastic Runtime Logs Forwarding
 
-1. Open the **Elastic Runtime Settings**, click **System Logging**, and paste **ls-router IP** into the **External Syslog Aggregator Hostname** input box. Select **port 5514** and the TCP protocol.
-<%= image_tag("Images/configure_system_logging.png") %>
+1. In the **Altoros Log Search for PCF** tile, click **Status** and record the IP address of the **Ingestor** VM.
 
-1. Click **Save**, go back to the installation dashboard, and press **Apply Changes**.
+1. In the **Pivotal Elastic Runtime** tile, click **System Logging** and complete the following fields:
+    1. **Address**: Enter the IP address from step 1.
+    1. **Port**: Enter `5514`.
+    1. **Transport Protocol**: Select `TCP protocol`.
+    <%= image_tag("Images/ert_configuration.png") %>
 
+1. Click **Save**.
 
+##<a id='data-services-configuration'></a> Configure Data Service Tiles Logs Forwarding
+
+1. In the **RabbitMQ**, **Redis** and **MySQL for PCF** tile, click **Syslog** and complete the following fields:
+    1. **Syslog address**: Enter the IP address from previous step.
+    1. **Syslog port**: Enter `5514`.
+    1. **Transport Protocol**: Select `TCP protocol`.
+    <%= image_tag("Images/services_configuration.png") %>
+
+1. Click **Save**.
+
+1. Click **Apply Changes**.
