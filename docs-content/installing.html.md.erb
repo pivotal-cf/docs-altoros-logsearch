@@ -17,7 +17,8 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 
 1. Configure **Log Data Retention** settings:
 
-    Define your log retention period. Elasticsearch Curator will match indices based on whether they fit within the given time range. By default, logging indices kept for 30 days.
+    Define your log retention period. Elasticsearch Curator matchs indices based on whether they fit within the given time range.
+    By default, logging indices are kept for 30 days.
 
     1. **Log retention unit**: This setting must be one of days, weeks, months, or years.
 
@@ -33,7 +34,7 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 1. In the **Altoros Log Search for PCF** tile, click **Status** and record the IP address of the **Ingestor** VM.
 
 1. In the **Pivotal Elastic Runtime** tile, click **System Logging** and complete the following fields:
-    1. **Address**: Enter the IP address from step 1.
+    1. **Address**: Enter the IP address from step 1, above.
     1. **Port**: Enter `5514`.
     1. **Transport Protocol**: Select `TCP protocol`.
     <%= image_tag("Images/ert_configuration.png") %>
@@ -42,8 +43,8 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 
 ##<a id='data-services-configuration'></a> Configure Data Service Tiles Logs Forwarding
 
-1. In the **RabbitMQ**, **Redis** and **MySQL for PCF** tile, click **Syslog** and complete the following fields:
-    1. **Syslog address**: Enter the IP address from previous step.
+1. In the **RabbitMQ**, **Redis**, and **MySQL for PCF** tiles, click **Syslog** and complete the following fields:
+    1. **Syslog address**: Enter the IP address from [Configure Pivotal Elastic Runtime Logs Forwarding](#elastic-runtime-configuration) above.
     1. **Syslog port**: Enter `5514`.
     1. **Transport Protocol**: Select `TCP protocol`.
     <%= image_tag("Images/services_configuration.png") %>
