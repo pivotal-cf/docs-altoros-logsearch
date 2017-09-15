@@ -41,6 +41,17 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 
 1. Click **Save**.
 
+##<a id='bosh-configuration'></a> Configure Ops Manager Director Logs Forwarding
+
+1. In the **Ops Manager Director** tile, click **Syslog** and complete the following fields:
+    1. **Do you want to configure Syslog for Bosh Director?**: Select `Yes`.
+    1. **Address**: Enter the IP address from [Configure Pivotal Elastic Runtime Logs Forwarding](#elastic-runtime-configuration) above.
+    1. **Port**: Enter `5514`.
+    1. **Transport Protocol**: Select `TCP`.
+    <%= image_tag("Images/ops_manager_director_configuration.png") %>
+
+1. Click **Save**.
+
 ##<a id='data-services-configuration'></a> Configure Data Service Tiles Logs Forwarding
 
 1. In the **RabbitMQ**, **Redis**, and **MySQL for PCF** tiles, click **Syslog** and complete the following fields:
