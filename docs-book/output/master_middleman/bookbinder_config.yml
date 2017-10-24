@@ -5,9 +5,9 @@
 :subnav_templates:
   altoros-logsearch: altoros-logsearch
 :template_variables: 
-:local_repo_dir: "/docs"
+:local_repo_dir: "/Users/jacobknostman/workspace/docs-altoros-logsearch"
 :workspace: !ruby/object:Pathname
-  path: "/docs/docs-book/output/master_middleman/source"
+  path: "/Users/jacobknostman/workspace/docs-altoros-logsearch/docs-book/output/master_middleman/source"
 :feedback_enabled: 
 :repo_link_enabled: true
 :repo_links:

@@ -25,7 +25,7 @@ For information about creating and editing Kibana visualizations and dashboards,
 
 ##<a id='manage-instances'></a> Create, Use, and Manage Service Instances
 
-In order to use Logserach On Demand Service Broker you should go through the following steps:
+In order to use the Log Search On Demand Service Broker you should go through the following steps:
 
 1. Set your API endpoint to the Cloud Controller of your deployment.
   <pre class="terminal">
@@ -35,7 +35,7 @@ In order to use Logserach On Demand Service Broker you should go through the fol
   API endpoint:  <span>https:</span>//api.YOUR-SYSTEM-DOMAIN (API version: 2.59.0)
   Not logged in. Use 'cf login' to log in.
   </pre>
-1. Log in to your deployment and select an org and a space.
+1. Log into your deployment and select an org and a space.
   <pre class="terminal">
   $ cf login
   API endpoint: <span>https:</span>//api.YOUR-SYSTEM-DOMAIN
@@ -62,7 +62,7 @@ In order to use Logserach On Demand Service Broker you should go through the fol
 
 
 1. Before binding the app, first check that the service was created.
-You can do this by using `cf service INSTANCE_NAME`.
+You can do this by using: `cf service INSTANCE_NAME`.
 
 1. Bind your application to the service instance.
 
@@ -81,7 +81,8 @@ You can do this by using `cf service INSTANCE_NAME`.
 </pre>
 
 1. Execute `cf env YOUR-APP` command.
-   This step allow you to review environment variable that Logserach On Demand Broker sets for your application. This environment variable has the following format:
+   This step allows you to review environment variables that the Logserach On Demand Broker sets 
+for your application. This environment variable has the following format:
 
     ```
     {
@@ -91,6 +92,7 @@ You can do this by using `cf service INSTANCE_NAME`.
     }
     ```
 
-1. Use kibana_url parameter from the previous step to access Kibana UI and observe you application logs.
+1. Use the kibana_url parameter from the previous step to access Kibana UI 
+and observe your application logs.
 
-1. Login to Kibana using your platform credentials.
+1. Log into Kibana using your platform credentials.

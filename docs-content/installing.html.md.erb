@@ -29,7 +29,9 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 
 1. Configure **On-Demand Service Broker** settings:
 
-    Currently Logsearch On-Demand service broker supports only one service plan: **Single Node** This service plan deploys all **Altoros Log Search for PCF** components on a single virtual machine. All setting for **Single Node** service plan can be configured using **Single Node Plan Configuration** tab.
+    Currently Logsearch On-Demand service broker supports only one service plan: **Single Node**. 
+This service plan deploys all **Altoros Log Search for PCF** components on a single virtual machine. 
+All settings for the **Single Node** service plan can be configured using the **Single Node Plan Configuration** tab.
 
     1. **AZ to deploy service instance node**: This is the AZ in which to deploy the Logsearch instances from the **Single Node** plan. This must be one of the AZs of the service network (configured in the Ops Manager Director tile).
 
@@ -42,7 +44,10 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 
 1. Configure **Automated Snapshots** settings:
 
-    To enable automated backups for old Elasticsearch indices, you will first need to choose your backup destination type - AWS S3 or Shared File System. Set **No Snapshots** setting if you don’t want to backup your data with the **Altoros Log Search for PCF** tile.
+    To enable automated backups for old Elasticsearch indices, you will first 
+need to choose your backup destination type - AWS S3 or Shared File System. 
+Set the **No Snapshots** setting if you don’t want to backup your data with 
+the **Altoros Log Search for PCF** tile.
 
     1. **S3 Snapshots**:
 
