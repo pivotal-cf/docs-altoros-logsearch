@@ -27,6 +27,41 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 
 1. Click **Save**.
 
+1. Configure **On-Demand Service Broker** settings:
+
+    Currently Logsearch On-Demand service broker supports only one service plan: **Single Node** This service plan deploys all **Altoros Log Search for PCF** components on a single virtual machine. All setting for **Single Node** service plan can be configured using **Single Node Plan Configuration** tab.
+
+    1. **AZ to deploy service instance node**: This is the AZ in which to deploy the Logsearch instances from the **Single Node** plan. This must be one of the AZs of the service network (configured in the Ops Manager Director tile).
+
+    2. **VM type of a service instance node**: Select a large VM type. The plan creates a service instance of this size.
+
+    3. **Persistent disk type of a service instance node**: Select a disk size.
+    <%= image_tag("Images/single_plan_config.png") %>
+
+1. Click **Save**.
+
+1. Configure **Automated Snapshots** settings:
+
+    To enable automated backups for old Elasticsearch indices, you will first need to choose your backup destination type - AWS S3 or Shared File System. Set **No Snapshots** setting if you don’t want to backup your data with the **Altoros Log Search for PCF** tile.
+
+    1. **S3 Snapshots**:
+
+        1. **Access Key ID**: The access key for your S3 account.
+
+        2. **Secret Access Key**: The Secret Key associated with your Access Key.
+
+        3. **Bucket Name**: Name of the bucket you wish the files to be stored in.
+
+        4. **Region**: Region name for your S3 bucket.
+        <%= image_tag("Images/s3_snapshots_config.png") %>
+
+    2. **Shared File System**:
+
+
+        1. **Location where shared filesystem mounted to**: This location (or one of its parent directories) must be registered on all Elasticsearch master and data nodes.
+        <%= image_tag("Images/fs_snapshots_config.png") %>
+
+1. Click **Save**.
 1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install **Altoros Log Search for PCF** tile.
 
 ##<a id='elastic-runtime-configuration'></a> Configure Pivotal Elastic Runtime Logs Forwarding

@@ -1,16 +1,10 @@
 ---
-title: Altoros Log Search for PCF (Beta)
+title: Altoros Log Search for PCF 
 owner: Partners
 ---
 
-<p class="note warning">
-<strong>WARNING! </strong>
-The Altoros Log Search for Pivotal Cloud Foundry (PCF) tile is currently in beta and is intended for evaluation and test purposes only.
-Do not use this product in a PCF production environment.
-</p>
-
 Altoros Log Search for PCF is a flexible combination of Elasticsearch, Logstash, and Kibana (ELK)
-that provides log aggregation and parsing algorithms for PCF operators and developers.
+that provides log aggregation and parsing algorithms for PCF operators and developers. The solution provides shared and on-demand service plans. PCF operators can create a Log Search cluster, where access will be shared within a group of developers. With on-demand service plan, developers get the possibility to create Log Search cluster and bind it to some applications, which should be monitored.    
 
 ## <a id='overview'></a>Overview
 
@@ -20,6 +14,7 @@ Out-the-box, users get:
 + Retrieving and parsing of logs received from PCF
 + Secure authorized access to these logs in Kibana
 + Useful dashboards and search queries to start log analysis
++ Shared and on-demand service plans
 
 
 ## <a id='features'></a>Key Features
@@ -31,6 +26,7 @@ Altoros Log Search for PCF includes the following key features:
 * **Application logs**: Log Search is configured to get all application logs by default
 * **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service to control access to Kibana dashboards based on user role and rights within the platform. Multi-tenancy is implemented according to the roles defined by Cloud Foundry UAA.
 * **Dashboards and visualization**: Provides out-of-the-box Dashboards for application and PCF platform logs
+* **Automated back-ups**: Users can setup automated backups and archiving of logs to any S3-compatible storage system 
 
 ## <a id="snapshot"></a>Product Snapshot
 
@@ -41,27 +37,27 @@ The following table provides version and version-support information about Altor
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>v0.300.1</td>
+        <td>v1.0</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>August 16, 2017</td>
+        <td>September 24, 2017</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>Elasticsearch v5.1.1, Logstash v5.1.1, and Kibana v5.1.1</td>
+        <td>Elasticsearch v5.6.3, Logstash v5.6.3, and Kibana v5.6.3</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v1.9.x, v1.10.x, and v1.11.x</td>
+        <td>v1.10.x,v1.11.x and v1.12.x</td>
     </tr>
     <tr>
         <td>Compatible Elastic Runtime version(s)</td>
-        <td>v1.9.x, v1.10.x, and v1.11.x</td>
+        <td>v1.10.x, v1.11.x, and v1.12.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS, Azure, OpenStack, and vSphere</td>
+        <td>AWS, Azure, OpenStack, GCP and vSphere</td>
     </tr>
     <tr>
         <td>IPsec support</td>
@@ -73,23 +69,24 @@ The following table provides version and version-support information about Altor
 
 To complete installation of Altoros Log Search for PCF, you need the following:
 
-* CPU, RAM, and disk resources for 11 VMs
+* CPU, RAM, and disk resources for 11 VMs for shared service plan
+* CPU, RAM, and disk resources for 12 VMs for on-demand service plan
 * Internet connectivity between the networks where the PCF deployment and Log Search are installed. Altoros recommends installing Log Search on the same network with PCF.
 
 ## <a id="requirements"></a>Requirements
 
 Altoros Log Search for PCF has the following requirements:
 
-* [PCF Elastic Runtime](https://network.pivotal.io/products/elastic-runtime) v1.9.x, v1.10.x, and v1.11.x
-* [PCF Ops Manager](https://network.pivotal.io/products/ops-manager) v.1.9.x, v1.10.x, and v1.11.x
+* [PCF Elastic Runtime](https://network.pivotal.io/products/elastic-runtime) v1.10.x, v1.11.x, and v1.12.x
+* [PCF Ops Manager](https://network.pivotal.io/products/ops-manager) v.1.10.x, v1.11.x, and v1.12.x
 
 ## <a id="elastic-docs"></a>Elastic Documentation
 
 See the following Elastic documentation about each component of the ELK stack:
 
-* [Elasticsearch 5.5 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.5/index.html)
-* [Logstash 5.5 Documentation](https://www.elastic.co/guide/en/logstash/5.5/index.html)
-* [Kibana 5.5 Documentation](https://www.elastic.co/guide/en/kibana/5.5/index.html)
+* [Elasticsearch 5.6 Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+* [Logstash 5.6 Documentation](https://www.elastic.co/guide/en/logstash/current/index.html)
+* [Kibana 5.6 Documentation](https://www.elastic.co/guide/en/kibana/current/index.html)
 
 ## <a id="trial-license"></a>Trial License
 
