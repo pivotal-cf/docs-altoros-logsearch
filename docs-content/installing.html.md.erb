@@ -33,7 +33,7 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 This service plan deploys all **Altoros Log Search for PCF** components on a single virtual machine. 
 All settings for the **Single Node** service plan can be configured using the **Single Node Plan Configuration** tab.
 
-    1. **AZ to deploy service instance node**: This is the AZ in which to deploy the Logsearch instances from the **Single Node** plan. This must be one of the AZs of the service network (configured in the Ops Manager Director tile).
+    1. **AZ to deploy service instance node**: This is the AZ in which to deploy the Logsearch instances from the **Single Node** plan. This must be one of the AZs of the service network (configured in the BOSH Director tile).
 
     2. **VM type of a service instance node**: Select a large VM type. The plan creates a service instance of this size.
 
@@ -81,9 +81,9 @@ the **Altoros Log Search for PCF** tile.
 
 1. Click **Save**.
 
-##<a id='bosh-configuration'></a> Configure Ops Manager Director Logs Forwarding
+##<a id='bosh-configuration'></a> Configure BOSH Director Logs Forwarding
 
-1. In the **Ops Manager Director** tile, click **Syslog** and complete the following fields:
+1. In the **BOSH Director** tile, click **Syslog** and complete the following fields:
     1. **Do you want to configure Syslog for Bosh Director?**: Select `Yes`.
     1. **Address**: Enter the IP address from [Configure Pivotal Elastic Runtime Logs Forwarding](#elastic-runtime-configuration) above.
     1. **Port**: Enter `5514`.
