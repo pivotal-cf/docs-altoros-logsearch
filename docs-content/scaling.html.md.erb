@@ -1,9 +1,9 @@
 ---
-title: Scaling Altoros Log Search for PCF
+title: Scaling Altoros Log Search for Pivotal Platform
 owner: Partners
 ---
 
-This topic describes how to scale **Altoros Log Search for Pivotal Cloud Foundry (PCF)**.
+This topic describes how to scale **Altoros Log Search for Pivotal Platform**.
 
 ##<a id='determine-if-you-need-to-sclae'></a> Determine if You Need to Scale
 
@@ -19,12 +19,12 @@ Follow the steps below to view a histogram for your recent logs and identify if 
 
 ##<a id='sclae-up'></a> Scale Up Your Cluster
 
-Follow these steps to scale up your **Altoros Log Search for PCF** cluster to handle more incoming data.
+Follow these steps to scale up your **Altoros Log Search for Pivotal Platform** cluster to handle more incoming data.
 
-1. Open **Altoros Log Search for PCF** tile in PCF Ops Manager, click the Status tab.
+1. Open **Altoros Log Search for Pivotal Platform** tile in Pivotal Platform Ops Manager, click the Status tab.
     <%= image_tag("Images/logsearch-status.png") %>
 
 1. Verify current CPU usage for the **Log Search Ingestor** jobs. If the load is more than 60%, perform the next steps:
 
-    1. Navigate to the **Altoros Log Search for PCF** tile and click **Resource Config**.
+    1. Navigate to the **Altoros Log Search for Pivotal Platform** tile and click **Resource Config**.
     1. Add extra **Log Search Ingestor** instances until CPU load drops below 60%.

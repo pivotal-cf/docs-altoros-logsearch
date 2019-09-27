@@ -1,19 +1,19 @@
 ---
-title: Installing and Configuring Altoros Log Search for PCF
+title: Installing and Configuring Altoros Log Search for Pivotal Platform
 owner: Partners
 ---
 
-This topic describes how to install and configure **Altoros Log Search for Pivotal Cloud Foundry (PCF)**.
+This topic describes how to install and configure **Altoros Log Search for Pivotal Platform**.
 
-##<a id='install'></a> Install and Configure Altoros Log Search for PCF
+##<a id='install'></a> Install and Configure Altoros Log Search for Pivotal Platform
 
 1. Download the product file from [Pivotal Network](https://network.pivotal.io/products/altoros-log-search).
 
 1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
 
-1. Under the **Import a Product** button, click **+** next to the version number of **Altoros Log Search for PCF**. This adds the tile to your staging area.
+1. Under the **Import a Product** button, click **+** next to the version number of **Altoros Log Search for Pivotal Platform**. This adds the tile to your staging area.
 
-1. Click the newly added **Altoros Log Search for PCF** tile.
+1. Click the newly added **Altoros Log Search for Pivotal Platform** tile.
 
 1. Configure **Log Data Retention** settings:
 
@@ -30,7 +30,7 @@ This topic describes how to install and configure **Altoros Log Search for Pivot
 1. Configure **On-Demand Service Broker** settings:
 
     Currently Logsearch On-Demand service broker supports only one service plan: **Single Node**. 
-This service plan deploys all **Altoros Log Search for PCF** components on a single virtual machine. 
+This service plan deploys all **Altoros Log Search for Pivotal Platform** components on a single virtual machine. 
 All settings for the **Single Node** service plan can be configured using the **Single Node Plan Configuration** tab.
 
     1. **AZ to deploy service instance node**: This is the AZ in which to deploy the Logsearch instances from the **Single Node** plan. This must be one of the AZs of the service network (configured in the BOSH Director tile).
@@ -47,7 +47,7 @@ All settings for the **Single Node** service plan can be configured using the **
     To enable automated backups for old Elasticsearch indices, you will first 
 need to choose your backup destination type - AWS S3 or Shared File System. 
 Set the **No Snapshots** setting if you don’t want to backup your data with 
-the **Altoros Log Search for PCF** tile.
+the **Altoros Log Search for Pivotal Platform** tile.
 
     1. **S3 Snapshots**:
 
@@ -67,11 +67,11 @@ the **Altoros Log Search for PCF** tile.
         <%= image_tag("Images/fs_snapshots_config.png") %>
 
 1. Click **Save**.
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install **Altoros Log Search for PCF** tile.
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install **Altoros Log Search for Pivotal Platform** tile.
 
 ##<a id='elastic-runtime-configuration'></a> Configure Pivotal Elastic Runtime Logs Forwarding
 
-1. In the **Altoros Log Search for PCF** tile, click **Status** and record the IP address of the **Ingestor** VM.
+1. In the **Altoros Log Search for Pivotal Platform** tile, click **Status** and record the IP address of the **Ingestor** VM.
 
 1. In the **Pivotal Elastic Runtime** tile, click **System Logging** and complete the following fields:
     1. **Address**: Enter the IP address from step 1, above.
@@ -94,7 +94,7 @@ the **Altoros Log Search for PCF** tile.
 
 ##<a id='data-services-configuration'></a> Configure Data Service Tiles Logs Forwarding
 
-1. In the **RabbitMQ**, **Redis**, and **MySQL for PCF** tiles, click **Syslog** and complete the following fields:
+1. In the **RabbitMQ**, **Redis**, and **MySQL for Pivotal Platform** tiles, click **Syslog** and complete the following fields:
     1. **Syslog address**: Enter the IP address from [Configure Pivotal Elastic Runtime Logs Forwarding](#elastic-runtime-configuration) above.
     1. **Syslog port**: Enter `5514`.
     1. **Transport Protocol**: Select `TCP protocol`.
