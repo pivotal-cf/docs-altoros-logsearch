@@ -5,10 +5,8 @@ owner: Partners
 
 Altoros Log Search for Pivotal Platform is a flexible combination of Elasticsearch, Logstash, and Kibana (ELK)
 that provides log aggregation and parsing algorithms for Pivotal Platform operators and developers. 
-The solution provides shared and on-demand service plans. Pivotal Platform operators can create a 
+The solution provides shared service plan. Pivotal Platform operators can create a 
 Log Search cluster, where access will be shared within a group of developers. 
-With on-demand service plan, developers get the possibility to create Log Search cluster 
-and bind it to some applications, which should be monitored.    
 
 ## <a id='overview'></a>Overview
 
@@ -18,7 +16,7 @@ Out-the-box, users get:
 + Retrieving and parsing of logs received from Pivotal Platform
 + Secure authorized access to these logs in Kibana
 + Useful dashboards and search queries to start log analysis
-+ Shared and on-demand service plans
++ Shared service plan
 
 
 ## <a id='features'></a>Key Features
@@ -41,11 +39,11 @@ The following table provides version and version-support information about Altor
     <th>Details</th>
     <tr>
         <td>Version</td>
-        <td>v1.2.1</td>
+        <td>v1.2.2</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>Septemner 20, 2019</td>
+        <td>December 17, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
@@ -53,11 +51,11 @@ The following table provides version and version-support information about Altor
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v2.2.x, v2.3.x, v2.4.x, v2.5.x and v2.6.x</td>
+        <td>v2.2.x - v2.7.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Services (PAS) version(s)</td>
-        <td>v2.2.x, v2.3.x, v2.4.x, v2.5.x and v2.6.x</td>
+        <td>v2.2.x - v2.7.x</td>
     </tr>
     <tr>
         <td>BOSH stemcell version</td>
@@ -79,15 +77,14 @@ The following table provides version and version-support information about Altor
 To complete installation of Altoros Log Search for Pivotal Platform, you need the following:
 
 * CPU, RAM, and disk resources for 11 VMs for shared service plan
-* CPU, RAM, and disk resources for 12 VMs for on-demand service plan
 * Internet connectivity between the networks where the Pivotal Platform deployment and Log Search are installed. Altoros recommends installing Log Search on the same network with Pivotal Platform.
 
 ## <a id="requirements"></a>Requirements
 
 Altoros Log Search for Pivotal Platform has the following requirements:
 
-* [Pivotal Application Services](https://network.pivotal.io/products/elastic-runtime) v2.1.x, v2.2.x, v2.3.x, v2.4.x, v2.5.x, v2.6.x
-* [Ops Manager](https://network.pivotal.io/products/ops-manager) v2.1.x, v2.2.x, v2.3.x, v2.4.x
+* [Pivotal Application Services](https://network.pivotal.io/products/elastic-runtime) v2.2.x - v2.7.x
+* [Ops Manager](https://network.pivotal.io/products/ops-manager) v2.2.x - v2.7.x
 
 ## <a id="elastic-docs"></a>Elastic Documentation
 
