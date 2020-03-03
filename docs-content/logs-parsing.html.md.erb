@@ -1,22 +1,22 @@
 ---
-title: Parsing Rules for Altoros Log Search for Pivotal Platform
+title: Parsing Rules for Altoros Log Search for VMware Tanzu
 owner: Partners
 ---
 
-This topic describes default configuration of parsing rules for **Altoros Log Search for Pivotal Platform**.
+This topic describes default configuration of parsing rules for **Altoros Log Search for VMware Tanzu**.
 
 ##<a id='indices'></a> Indices
 
-By default, Altoros Log Search for Pivotal Platform stores parsed logs in indices named `logs-%{[@metadata][index]}-%{+YYYY.MM.dd}`.
+By default, Altoros Log Search for VMware Tanzu stores parsed logs in indices named `logs-%{[@metadata][index]}-%{+YYYY.MM.dd}`.
 `%{[@metadata][index]}` is calculated as the following:
 
-* `platform` for Pivotal Platform Elastic Runtime logs
-* `app-%{[cf][org]}-%{[cf][space]}` for Pivotal Platform Elastic Runtime application logs.
+* `platform` for VMware Tanzu Elastic Runtime logs
+* `app-%{[cf][org]}-%{[cf][space]}` for VMware Tanzu Elastic Runtime application logs.
 
 So the following indices are created as the result:
 
-* `logs-platform-%{+YYYY.MM.dd}` for Pivotal Platform Elastic Runtime platform logs.
-* `logs-app-%{[cf][org]}-%{[cf][space]}-%{+YYYY.MM.dd}` for Pivotal Platform Elastic Runtime application logs.
+* `logs-platform-%{+YYYY.MM.dd}` for VMware Tanzu Elastic Runtime platform logs.
+* `logs-app-%{[cf][org]}-%{[cf][space]}-%{+YYYY.MM.dd}` for VMware Tanzu Elastic Runtime application logs.
 
 Also it can be useful to read how to [get list of all indices in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/_list_all_indices.html).
 
@@ -59,7 +59,7 @@ These fields are common for application and platform logs. They store the follow
 
 ###<a id='app-fields'></a> Application Meta Fields
 
-These fields are specific to application logs only. They store Pivotal Platform Elastic Runtime metadata about an application that emmitted the log or relates to the log event (e.g. metrics).
+These fields are specific to application logs only. They store VMware Tanzu Elastic Runtime metadata about an application that emmitted the log or relates to the log event (e.g. metrics).
 
 <table>
 <tr><th>Field</th><th>Values</th></tr>
