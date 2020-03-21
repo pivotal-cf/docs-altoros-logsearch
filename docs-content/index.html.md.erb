@@ -1,21 +1,21 @@
 ---
-title: Altoros Log Search for Pivotal Platform
+title: Altoros Log Search for VMware Tanzu
 owner: Partners
 ---
 
-Altoros Log Search for Pivotal Platform is a flexible combination of Elasticsearch, Logstash, and Kibana (ELK)
-that provides log aggregation and parsing algorithms for Pivotal Platform operators and developers.
-The solution provides shared and on-demand service plans. Pivotal Platform operators can create a
+Altoros Log Search for VMware Tanzu is a flexible combination of Elasticsearch, Logstash, and Kibana (ELK)
+that provides log aggregation and parsing algorithms for VMware Tanzu operators and developers.
+The solution provides shared and on-demand service plans. VMware Tanzu operators can create a
 Log Search cluster, where access will be shared within a group of developers.
 With on-demand service plan, developers get the possibility to create Log Search cluster
 and bind it to some applications, which should be monitored.
 
 ## <a id='overview'></a>Overview
 
-The Altoros Log Search for Pivotal Platform provides role-based access to system and application logs.
+The Altoros Log Search for VMware Tanzu provides role-based access to system and application logs.
 Out-the-box, users get:
 
-+ Retrieving and parsing of logs received from Pivotal Platform
++ Retrieving and parsing of logs received from VMware Tanzu
 + Secure authorized access to these logs in Kibana
 + Useful dashboards and search queries to start log analysis
 + Shared and on-demand service plans
@@ -23,18 +23,18 @@ Out-the-box, users get:
 
 ## <a id='features'></a>Key Features
 
-Altoros Log Search for Pivotal Platform includes the following key features:
+Altoros Log Search for VMware Tanzu includes the following key features:
 
-* **Pivotal Platform logs**: Collecting logs from all Pivotal Platform components
-* **Services logs**: Provides the ability to collect logs from all Pivotal Platform Data Services available on Pivotal Network
+* **VMware Tanzu logs**: Collecting logs from all VMware Tanzu components
+* **Services logs**: Provides the ability to collect logs from all VMware Tanzu Data Services available on Pivotal Network
 * **Application logs**: Log Search is configured to get all application logs by default
 * **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service to control access to Kibana dashboards based on user role and rights within the platform. Multi-tenancy is implemented according to the roles defined by Cloud Foundry UAA.
-* **Dashboards and visualization**: Provides out-of-the-box Dashboards for application and Pivotal Platform platform logs
+* **Dashboards and visualization**: Provides out-of-the-box Dashboards for application and VMware Tanzu platform logs
 * **Automated back-ups**: Users can setup automated backups and the archiving of logs to any S3-compatible storage system
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about Altoros Log Search for Pivotal Platform.
+The following table provides version and version-support information about Altoros Log Search for VMware Tanzu.
 
 <table class="nice">
     <th>Element</th>
@@ -56,7 +56,7 @@ The following table provides version and version-support information about Altor
         <td>v2.5.x, v2.6.x, v2.7.x and v2.8.x</td>
     </tr>
     <tr>
-        <td>Compatible Pivotal Application Services (PAS) version(s)</td>
+        <td>Compatible Tanzu Application Services (PAS) version(s)</td>
         <td>v2.5.x, v2.6.x, v2.7.x and v2.8.x</td>
     </tr>
     <tr>
@@ -76,17 +76,17 @@ The following table provides version and version-support information about Altor
 
 ## <a id="prerequisites"></a>Prerequisites
 
-To complete installation of Altoros Log Search for Pivotal Platform, you need the following:
+To complete installation of Altoros Log Search for VMware Tanzu, you need the following:
 
 * CPU, RAM, and disk resources for 11 VMs for shared service plan
 * CPU, RAM, and disk resources for 12 VMs for on-demand service plan
-* Internet connectivity between the networks where the Pivotal Platform deployment and Log Search are installed. Altoros recommends installing Log Search on the same network with Pivotal Platform.
+* Internet connectivity between the networks where the VMware Tanzu deployment and Log Search are installed. Altoros recommends installing Log Search on the same network with VMware Tanzu.
 
 ## <a id="requirements"></a>Requirements
 
-Altoros Log Search for Pivotal Platform has the following requirements:
+Altoros Log Search for VMware Tanzu has the following requirements:
 
-* [Pivotal Application Services](https://network.pivotal.io/products/elastic-runtime) v2.5.x, v2.6.x, v2.7.x, v2.8.x
+* [Tanzu Application Services](https://network.pivotal.io/products/elastic-runtime) v2.5.x, v2.6.x, v2.7.x, v2.8.x
 * [Ops Manager](https://network.pivotal.io/products/ops-manager) v2.5.x, v2.6.x, v2.7.x, v2.8.x
 
 ## <a id="elastic-docs"></a>Elastic Documentation
@@ -97,11 +97,7 @@ See the following Elastic documentation about each component of the ELK stack:
 * [Logstash 6.8 Documentation](https://www.elastic.co/guide/en/logstash/6.8/index.html)
 * [Kibana 6.8 Documentation](https://www.elastic.co/guide/en/kibana/6.8/index.html)
 
-## <a id="trial-license"></a>Trial License
-
-Users interested in Log Search can sign up for a [free trial](https://www.altoros.com/wp-content/uploads/2017/07/AltorosLogsearchTileEULA.pdf).
 
 ## <a id="feedback"></a>Feedback
 
-If you have a feature request, questions, or information about a bug, please email
-[Pivotal Platform Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to [Altoros Customer Support](mailto:pcftiles-support@altoros.com).
+If you have a feature request, questions, or information about a bug send an email to [Altoros Customer Support](mailto:pcftiles-support@altoros.com).

@@ -1,16 +1,16 @@
 ---
-title: Troubleshooting Altoros Log Search for Pivotal Platform
+title: Troubleshooting Altoros Log Search for VMware Tanzu
 owner: Partners
 ---
 
-This topic describes how to resolve common issues with **Altoros Log Search of Pivotal Platform**.
+This topic describes how to resolve common issues with **Altoros Log Search of VMware Tanzu**.
 
 ##<a id='cluster-health'></a> Verify Log Search Cluster Health
 
-Follow these steps to verify **Altoros Log Search for Pivotal Platform** cluster health:
+Follow these steps to verify **Altoros Log Search for VMware Tanzu** cluster health:
 
-1. In the **Altoros Log Search for Pivotal Platform** tile, click **Status** and record the IP address of the Elasticsearch Master instance.
-1. SSH into Pivotal Platform Ops Manager instance.
+1. In the **Altoros Log Search for VMware Tanzu** tile, click **Status** and record the IP address of the Elasticsearch Master instance.
+1. SSH into VMware Tanzu Ops Manager instance.
 1. Execute the next command to check the current Elasticsearch cluster state:
     ```
     curl ELASTICSEARCH-MASTER-INSTANCE-IP:9200/_cluster/health
