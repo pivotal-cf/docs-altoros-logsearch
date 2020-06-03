@@ -29,8 +29,8 @@ This topic describes how to install and configure **Altoros Log Search for VMwar
 
 1. Configure **On-Demand Service Broker** settings:
 
-    Currently Logsearch On-Demand service broker supports only one service plan: **Single Node**. 
-This service plan deploys all **Altoros Log Search for VMware Tanzu** components on a single virtual machine. 
+    Currently Logsearch On-Demand service broker supports only one service plan: **Single Node**.
+This service plan deploys all **Altoros Log Search for VMware Tanzu** components on a single virtual machine.
 All settings for the **Single Node** service plan can be configured using the **Single Node Plan Configuration** tab.
 
     1. **AZ to deploy service instance node**: This is the AZ in which to deploy the Logsearch instances from the **Single Node** plan. This must be one of the AZs of the service network (configured in the BOSH Director tile).
@@ -44,9 +44,9 @@ All settings for the **Single Node** service plan can be configured using the **
 
 1. Configure **Automated Snapshots** settings:
 
-    To enable automated backups for old Elasticsearch indices, you will first 
-need to choose your backup destination type - AWS S3 or Shared File System. 
-Set the **No Snapshots** setting if you don’t want to backup your data with 
+    To enable automated backups for old Elasticsearch indices, you will first
+need to choose your backup destination type - AWS S3 or Shared File System.
+Set the **No Snapshots** setting if you don’t want to backup your data with
 the **Altoros Log Search for VMware Tanzu** tile.
 
     1. **S3 Snapshots**:
@@ -94,7 +94,7 @@ the **Altoros Log Search for VMware Tanzu** tile.
 
 ##<a id='data-services-configuration'></a> Configure Data Service Tiles Logs Forwarding
 
-1. In the **RabbitMQ**, **Redis**, and **MySQL for VMware Tanzu** tiles, click **Syslog** and complete the following fields:
+1. In the **RabbitMQ**, **Redis**, and **VMware Tanzu SQL [MySQL]** tiles, click **Syslog** and complete the following fields:
     1. **Syslog address**: Enter the IP address from [Configure Pivotal Elastic Runtime Logs Forwarding](#elastic-runtime-configuration) above.
     1. **Syslog port**: Enter `5514`.
     1. **Transport Protocol**: Select `TCP protocol`.
